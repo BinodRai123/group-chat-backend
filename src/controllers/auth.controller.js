@@ -22,7 +22,7 @@ async function authRegister(req, res){
     const token = await jwt.sign({id: user._id}, process.env.JWT_SECRET_KEY);
     res.cookie("token", token, {
         httpOnly: true,       
-        secure: false,    
+        secure: true,    
         sameSite: "Strict"
     });
 
@@ -60,7 +60,7 @@ async function authLogin(req, res){
     const token = jwt.sign({id: user._id}, process.env.JWT_SECRET_KEY);
     res.cookie("token",token, {
         httpOnly: true,       
-        secure: false,    
+        secure: true,    
         sameSite: "Strict"
     });
 
